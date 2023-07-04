@@ -1,0 +1,21 @@
+-- Create table
+create table MASTER_TABLE
+(
+  fid           NUMBER,
+  change_tx_fid NUMBER,
+  valid         VARCHAR2(1)
+--, your columns
+)
+tablespace USERS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+-- Grant/Revoke object privileges 
+grant select, insert, update, delete, references, alter, index on MASTER_TABLE to APEX_PUBLIC_USER;
